@@ -4,7 +4,7 @@ import ApiDetail from './pages/ApiDetail'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/web-api">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/api/:apiId" element={<ApiDetail />} />
