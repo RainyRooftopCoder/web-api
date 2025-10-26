@@ -1,0 +1,284 @@
+/* ========================================
+   반응형 웹 디자인 CSS
+   ======================================== */
+
+/* CSS 변수 정의 (다크모드 대응 가능) */
+:root {
+  /* 브레이크포인트 */
+  --mobile-max: 767px;
+  --tablet-min: 768px;
+  --tablet-max: 1023px;
+  --desktop-min: 1024px;
+
+  /* 컨테이너 최대 너비 */
+  --container-mobile: 100%;
+  --container-tablet: 720px;
+  --container-desktop: 1200px;
+
+  /* 간격 */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* 폰트 크기 */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-base: 1rem;
+  --font-lg: 1.125rem;
+  --font-xl: 1.25rem;
+  --font-2xl: 1.5rem;
+  --font-3xl: 2rem;
+}
+
+/* ========================================
+   기본 레이아웃
+   ======================================== */
+
+/* 컨테이너 - 반응형 최대 너비 설정 */
+.container {
+  width: 100%;
+  max-width: var(--container-mobile);
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+  box-sizing: border-box;
+}
+
+/* ========================================
+   그리드 시스템
+   ======================================== */
+
+.grid {
+  display: grid;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+/* 모바일: 1열 */
+.grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+
+/* 2열 그리드 */
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+/* ========================================
+   플렉스박스 유틸리티
+   ======================================== */
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-sm { gap: var(--spacing-sm); }
+.gap-md { gap: var(--spacing-md); }
+.gap-lg { gap: var(--spacing-lg); }
+
+/* ========================================
+   반응형 텍스트
+   ======================================== */
+
+.text-xs { font-size: var(--font-xs); }
+.text-sm { font-size: var(--font-sm); }
+.text-base { font-size: var(--font-base); }
+.text-lg { font-size: var(--font-lg); }
+.text-xl { font-size: var(--font-xl); }
+.text-2xl { font-size: var(--font-2xl); }
+.text-3xl { font-size: var(--font-3xl); }
+
+/* ========================================
+   반응형 간격
+   ======================================== */
+
+.p-xs { padding: var(--spacing-xs); }
+.p-sm { padding: var(--spacing-sm); }
+.p-md { padding: var(--spacing-md); }
+.p-lg { padding: var(--spacing-lg); }
+.p-xl { padding: var(--spacing-xl); }
+
+.m-xs { margin: var(--spacing-xs); }
+.m-sm { margin: var(--spacing-sm); }
+.m-md { margin: var(--spacing-md); }
+.m-lg { margin: var(--spacing-lg); }
+.m-xl { margin: var(--spacing-xl); }
+
+/* ========================================
+   반응형 표시/숨김
+   ======================================== */
+
+/* 모바일에서만 표시 */
+.mobile-only {
+  display: block;
+}
+
+/* 태블릿에서만 표시 */
+.tablet-only {
+  display: none;
+}
+
+/* 데스크톱에서만 표시 */
+.desktop-only {
+  display: none;
+}
+
+/* ========================================
+   반응형 이미지/미디어
+   ======================================== */
+
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 비율 */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe,
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ========================================
+   태블릿 반응형 (768px ~ 1023px)
+   ======================================== */
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: var(--container-tablet);
+    padding: 0 var(--spacing-md);
+  }
+
+  /* 그리드 */
+  .tablet\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .tablet\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .tablet\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+  /* 텍스트 크기 조정 */
+  .text-3xl { font-size: 2.5rem; }
+
+  /* 표시/숨김 */
+  .mobile-only {
+    display: none;
+  }
+
+  .tablet-only {
+    display: block;
+  }
+
+  /* 간격 조정 */
+  .tablet\:p-lg { padding: var(--spacing-lg); }
+  .tablet\:m-lg { margin: var(--spacing-lg); }
+}
+
+/* ========================================
+   데스크톱 반응형 (1024px 이상)
+   ======================================== */
+
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: var(--container-desktop);
+    padding: 0 var(--spacing-lg);
+  }
+
+  /* 그리드 */
+  .desktop\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .desktop\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .desktop\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .desktop\:grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+
+  /* 텍스트 크기 조정 */
+  .text-3xl { font-size: 3rem; }
+
+  /* 표시/숨김 */
+  .tablet-only {
+    display: none;
+  }
+
+  .desktop-only {
+    display: block;
+  }
+
+  /* 간격 조정 */
+  .desktop\:p-xl { padding: var(--spacing-xl); }
+  .desktop\:m-xl { margin: var(--spacing-xl); }
+
+  /* 플렉스 방향 */
+  .desktop\:flex-row {
+    flex-direction: row;
+  }
+}
+
+/* ========================================
+   큰 화면 (1440px 이상)
+   ======================================== */
+
+@media screen and (min-width: 1440px) {
+  :root {
+    --container-desktop: 1400px;
+  }
+}
+
+/* ========================================
+   인쇄 스타일
+   ======================================== */
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+}
+
+/* ========================================
+   접근성
+   ======================================== */
+
+/* 포커스 표시 */
+*:focus-visible {
+  outline: 2px solid #646cff;
+  outline-offset: 2px;
+}
+
+/* 스크린 리더 전용 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

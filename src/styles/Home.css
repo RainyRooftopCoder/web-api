@@ -1,0 +1,138 @@
+/* Home 페이지 스타일 */
+
+.home-header {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+}
+
+.home-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #646cff;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #666;
+  margin-bottom: 0;
+}
+
+/* API 카드 그리드 */
+.api-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* API 카드 버튼 */
+.api-card {
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.api-card:hover {
+  border-color: #646cff;
+  box-shadow: 0 4px 12px rgba(100, 108, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.api-card:active {
+  transform: translateY(0);
+}
+
+.api-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #213547;
+}
+
+.api-description {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+}
+
+/* 태블릿 (768px 이상) */
+@media screen and (min-width: 768px) {
+  .home-header h1 {
+    font-size: 3rem;
+  }
+
+  .api-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .api-card {
+    padding: 2rem;
+  }
+}
+
+/* 데스크톱 (1024px 이상) */
+@media screen and (min-width: 1024px) {
+  .home-header {
+    padding: 4rem 1rem 3rem;
+  }
+
+  .home-header h1 {
+    font-size: 3.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+  }
+
+  .api-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .api-card {
+    padding: 2.5rem;
+  }
+
+  .api-name {
+    font-size: 1.5rem;
+  }
+
+  .api-description {
+    font-size: 1rem;
+  }
+}
+
+/* 다크모드 */
+@media (prefers-color-scheme: dark) {
+  .subtitle {
+    color: #aaa;
+  }
+
+  .api-card {
+    background: #1a1a1a;
+    border-color: #333;
+  }
+
+  .api-card:hover {
+    border-color: #646cff;
+    box-shadow: 0 4px 12px rgba(100, 108, 255, 0.25);
+  }
+
+  .api-name {
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  .api-description {
+    color: #aaa;
+  }
+}
